@@ -21,21 +21,27 @@ public class PrzelicznikMetrycznyServlet extends HttpServlet {
 
         final PrintWriter writer = response.getWriter();
 
-        if(!metry.equals(null) && centymetry.equals(null) && milimetry.equals(null)) {
+        if(!metry.equals("") && centymetry.equals("") && milimetry.equals("")) {
             double m = Double.valueOf(metry);
             double result1 = CalculateLenght.changeMtoCM(m);
             double result2 = CalculateLenght.changeMtoMM(m);
-            writer.println("Podana wartość " + metry + " m w przeliczeniu na:" + "/n" + "centymetry: " + result1 + "/n" + "milimetry: " + result2);
-        } else if(!centymetry.equals(null) && metry.equals(null) && milimetry.equals(null)){
+            writer.println("Podana wartość " + metry + " m w przeliczeniu na");
+            writer.println("centymetry: " + result1 + ",");
+            writer.println("milimetry: " + result2);
+        } else if(!centymetry.equals("") && metry.equals("") && milimetry.equals("")){
             double cm = Double.valueOf(centymetry);
             double result1 = CalculateLenght.changeCMtoM(cm);
             double result2 = CalculateLenght.changeCMtoMM(cm);
-            writer.println("Podana wartość " + centymetry + " cm w przeliczeniu na:" + "/n" +"metry: " + result1 + "/n" + "milimetry: " + result2);
-        } else if(!milimetry.equals(null) && centymetry.equals(null) && metry.equals(null)){
+            writer.println("Podana wartość " + centymetry + " cm w przeliczeniu na");
+            writer.println("metry:  " + result1 + ",");
+            writer.println("milimetry: " + result2);
+        } else if(!milimetry.equals("") && centymetry.equals("") && metry.equals("")){
             double mm = Double.valueOf(milimetry);
             double result1 = CalculateLenght.changeMMtoCM(mm);
             double result2 = CalculateLenght.changeMMtoM(mm);
-            writer.println("Podana wartość " + milimetry + " mm w przeliczeniu na:" + "/n" + "centymetry: " + result1 + "/n" + "metry: " + result2);
+            writer.println("Podana wartość " + milimetry + " mm w przeliczeniu na");
+            writer.println("centymetry: " + result1 + ",");
+            writer.println("metry: " + result2);
         } else {
             writer.println("Należy wypełnić tylko jedno pole");
         }

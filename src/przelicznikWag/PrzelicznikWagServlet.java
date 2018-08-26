@@ -21,21 +21,27 @@ public class PrzelicznikWagServlet extends HttpServlet {
 
         final PrintWriter writer = response.getWriter();
 
-        if(!kilogramy.equals(null) && gramy.equals(null) && miligramy.equals(null)) {
+        if(!kilogramy.equals("") && gramy.equals("") && miligramy.equals("")) {
             double kg = Double.valueOf(kilogramy);
             double result1 = CalculateWeight.changeKGtoG(kg);
             double result2 = CalculateWeight.changeKGtoMg(kg);
-            writer.println("Podana wartość " + kilogramy + " kg w przeliczeniu na:" + "/n" + "gramy: " + result1 + "/n" + "miligramy: " + result2);
-        } else if(!gramy.equals(null) && kilogramy.equals(null) && miligramy.equals(null)){
+            writer.println("Podana wartość " + kilogramy + " kg w przeliczeniu na");
+            writer.println("gramy:  " + result1 + ",");
+            writer.println("miligramy: " + result2);
+        } else if(!gramy.equals("") && kilogramy.equals("") && miligramy.equals("")){
             double g = Double.valueOf(gramy);
             double result1 = CalculateWeight.changeGtoMg(g);
             double result2 = CalculateWeight.changeGtoKg(g);
-            writer.println("Podana wartość " + gramy + " g w przeliczeniu na:" + "/n" + "miligramy: " + result1 + "/n" + "kilogramy: " + result2);
-        } else if(!miligramy.equals(null) && gramy.equals(null) && kilogramy.equals(null)){
+            writer.println("Podana wartość " + gramy + " g w przeliczeniu na");
+            writer.println("miligramy:  " + result1 + ",");
+            writer.println("kilogramy: " + result2);
+        } else if(!miligramy.equals("") && gramy.equals("") && kilogramy.equals("")){
             double mg = Double.valueOf(miligramy);
             double result1 = CalculateWeight.changeMGtoG(mg);
             double result2 = CalculateWeight.changeMGtoKG(mg);
-            writer.println("Podana wartość " + miligramy + " mg w przeliczeniu na:" + "/n" + "gramy: " + result1 + "/n" + "kilogramy: " + result2);
+            writer.println("Podana wartość " + miligramy + " mg w przeliczeniu na");
+            writer.println("gramy:  " + result1 + ",");
+            writer.println("kilogramy: " + result2);
         } else {
             writer.println("Należy wypełnić tylko jedno pole");
         }
